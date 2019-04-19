@@ -69,7 +69,7 @@ class OrgTeamPresenter extends BasePresenter<OrgTeamMvp.View> implements OrgTeam
     }
 
     @Override public void onWorkOffline(@NonNull String login) {
-        //TODO
+        //DONTDO
     }
 
     @Override public void onItemClick(int position, View v, TeamsModel item) {

@@ -107,7 +107,7 @@ class PullRequestEventViewHolder private constructor(view: View, adapter: BaseRe
             stateText.text = SpannableBuilder.builder()
                     .bold(it.login())
                     .append(" ")
-                    .append("unassigned") //TODO add "removed their assignment" for self
+                    .append("unassigned") //DONTDO add "removed their assignment" for self
                     .append(" ")
                     .append(event.user()?.login())
                     .append(" ")
@@ -388,7 +388,7 @@ class PullRequestEventViewHolder private constructor(view: View, adapter: BaseRe
             stateText.text = SpannableBuilder.builder()
                     .bold(it.login())
                     .append(" ")
-                    .append("assigned") //TODO add "self-assigned" for self
+                    .append("assigned") //DONTDO add "self-assigned" for self
                     .append(" ")
                     .append(event.user()?.login())
                     .append(" ")

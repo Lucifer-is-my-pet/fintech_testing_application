@@ -67,7 +67,7 @@ class TeamReposPresenter extends BasePresenter<TeamReposMvp.View> implements Tea
     }
 
     @Override public void onWorkOffline(@NonNull String login) {
-        //TODO
+        //DONTDO
     }
 
     @Override public void onItemClick(int position, View v, Repo item) {

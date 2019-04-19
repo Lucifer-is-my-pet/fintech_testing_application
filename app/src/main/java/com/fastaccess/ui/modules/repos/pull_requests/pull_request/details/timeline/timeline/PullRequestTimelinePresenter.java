@@ -191,7 +191,7 @@ public class PullRequestTimelinePresenter extends BasePresenter<PullRequestTimel
     }
 
     @Override public void onWorkOffline() {
-        //TODO
+        //DONTDO
     }
 
     @Override public void onHandleDeletion(@Nullable Bundle bundle) {

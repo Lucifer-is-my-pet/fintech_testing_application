@@ -347,7 +347,7 @@ public class SchemeParser {
      * [[k0shk0sh, FastHub, issues], k0shk0sh/fastHub/(issues,pulls,commits, etc)]
      */
     @Nullable private static Intent getGeneralRepo(@NonNull Context context, @NonNull Uri uri) {
-        //TODO parse deeper links to their associate views. meantime fallback to repoPage
+        //DONTDO parse deeper links to their associate views. meantime fallback to repoPage
         if (getInvitationIntent(uri)) {
             return null;
         }

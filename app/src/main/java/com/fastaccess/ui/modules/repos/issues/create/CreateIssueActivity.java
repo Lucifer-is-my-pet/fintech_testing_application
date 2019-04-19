@@ -145,8 +145,8 @@ public class CreateIssueActivity extends BaseActivity<CreateIssueMvp.View, Creat
     }
 
     @NonNull public static Intent startForResult(@NonNull Activity activity) {
-        String login = "k0shk0sh"; // FIXME: 23/02/2017 hardcoded
-        String repoId = "FastHub";// FIXME: 23/02/2017 hardcoded
+        String login = "k0shk0sh"; // DONTFIXME: 23/02/2017 hardcoded
+        String repoId = "FastHub";// DONTFIXME: 23/02/2017 hardcoded
         Intent intent = new Intent(activity, CreateIssueActivity.class);
         intent.putExtras(Bundler.start()
                 .put(BundleConstant.EXTRA, login)
@@ -205,7 +205,7 @@ public class CreateIssueActivity extends BaseActivity<CreateIssueMvp.View, Creat
     @Override public void onShowIssueMisc() {
         TransitionManager.beginDelayedTransition(findViewById(R.id.parent));
         issueMiscLayout.setVisibility(getPresenter().isCollaborator() ? View.VISIBLE : View.GONE);
-        //TODO
+        //DONTDO
     }
 
     @NonNull @Override public CreateIssuePresenter providePresenter() {

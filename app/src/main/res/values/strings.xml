@@ -509,8 +509,8 @@
     <string name="scroll_up">Scroll Up</string>
     <string name="scroll_down">Scroll down</string>
     <string name="participated">Participated</string>
-    <string name="todo_checked">Todo checked</string>
-    <string name="todo_unchecked">Todo unchecked</string>
+    <string name="DONTDO_checked">DONTDO checked</string>
+    <string name="DONTDO_unchecked">DONTDO unchecked</string>
     <string name="divider">Divider</string>
     <string name="no_user_found">No user found</string>
     <string name="no_trending">No trending</string>

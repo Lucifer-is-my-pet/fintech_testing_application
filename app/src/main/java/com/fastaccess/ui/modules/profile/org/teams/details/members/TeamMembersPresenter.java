@@ -67,7 +67,7 @@ class TeamMembersPresenter extends BasePresenter<TeamMembersMvp.View> implements
     }
 
     @Override public void onWorkOffline(@NonNull String login) {
-        //TODO
+        //DONTDO
     }
 
     @Override public void onItemClick(int position, View v, User item) {}

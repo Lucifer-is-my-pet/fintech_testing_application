@@ -44,13 +44,13 @@ import lombok.NoArgsConstructor;
     }
 
     @Override public void beforeChildren(TagNode node, SpannableStringBuilder builder) {
-        TodoItems todoItem = null;
+        DONTDOItems DONTDOItem = null;
         if (node.getChildTags() != null && node.getChildTags().length > 0) {
             for (TagNode tagNode : node.getChildTags()) {
                 Logger.e(tagNode.getName(), tagNode.getText());
                 if (tagNode.getName() != null && tagNode.getName().equals("input")) {
-                    todoItem = new TodoItems();
-                    todoItem.isChecked = tagNode.getAttributeByName("checked") != null;
+                    DONTDOItem = new DONTDOItems();
+                    DONTDOItem.isChecked = tagNode.getAttributeByName("checked") != null;
                     break;
                 }
             }
@@ -58,12 +58,12 @@ import lombok.NoArgsConstructor;
         if ("ol".equals(getParentName(node))) {
             builder.append(String.valueOf(getMyIndex(node))).append(". ");
         } else if ("ul".equals(getParentName(node))) {
-            if (todoItem != null) {
+            if (DONTDOItem != null) {
                 if (checked == null || unchecked == null) {
-                    builder.append(todoItem.isChecked ? "☑" : "☐");
+                    builder.append(DONTDOItem.isChecked ? "☑" : "☐");
                 } else {
                     builder.append(SpannableBuilder.builder()
-                            .append(todoItem.isChecked ? checked : unchecked))
+                            .append(DONTDOItem.isChecked ? checked : unchecked))
                             .append(" ");
                 }
             } else {
@@ -76,7 +76,7 @@ import lombok.NoArgsConstructor;
         appendNewLine(spannableStringBuilder);
     }
 
-    static class TodoItems {
+    static class DONTDOItems {
         boolean isChecked;
     }
 }

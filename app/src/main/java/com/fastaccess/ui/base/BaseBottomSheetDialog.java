@@ -127,7 +127,8 @@ import butterknife.Unbinder;
     protected void onHidden() {
         try {
             dismiss();
-        } catch (IllegalStateException ignored) {} //FML FIXME
+        } catch (IllegalStateException ignored) {
+        } //FML DONTFIXME
     }
 
     protected void onDismissedByScrolling() {}
