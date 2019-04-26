@@ -16,7 +16,7 @@ public class FastHubTest {
     private static FastHubApp app;
 
     @Before
-    public void before() throws TimeoutException, InterruptedException {
+    public void before() throws TimeoutException {
         app = new FastHubApp(UiDevice.getInstance(getInstrumentation()));
         app.open();
     }
@@ -41,12 +41,11 @@ public class FastHubTest {
     @Test
     public void checkRestorePurchases() throws UiObjectNotFoundException {
         app.clickMenuItem("Restore Purchases");
-        assertTrue(app.hasObjectWithTitle(app.getAppName()));
-        assertFalse(app.hasObjectWithText("Menu")); // Intent не проверить
+        assertTrue(app.hasObjectWithTitle(app.getAppName())); // Intent не проверить
     }
 
     @Test
-    public void checkReportAnIssue() throws UiObjectNotFoundException, InterruptedException {
+    public void checkReportAnIssue() throws UiObjectNotFoundException {
         app.clickMenuItem("Send feedback");
         assertTrue(app.hasObjectWithText("You are currently using a debug build"));
         app.clickObjectWithText("OK");
