@@ -1,4 +1,4 @@
-package com.fintech.fasthub;
+package com.fintech.fasthub.UIAutomator;
 
 import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObjectNotFoundException;

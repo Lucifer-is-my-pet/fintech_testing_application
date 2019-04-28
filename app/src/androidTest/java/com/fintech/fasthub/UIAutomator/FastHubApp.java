@@ -1,4 +1,4 @@
-package com.fintech.fasthub;
+package com.fintech.fasthub.UIAutomator;
 
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +31,7 @@ public class FastHubApp {
         this.intent = context.getPackageManager().getLaunchIntentForPackage(PACKAGE);
     }
 
-    void open() throws TimeoutException {
+    public void open() throws TimeoutException {
         if (!device.wait(Until.hasObject(By.pkg(device.getLauncherPackageName()).depth(0)), TIMEOUT)) {
             throw new TimeoutException("Нет пакета " + device.getLauncherPackageName());
         }
@@ -44,15 +44,10 @@ public class FastHubApp {
         }
     }
 
-    void clickMenuItem(String itemTitle) throws UiObjectNotFoundException {
+    public void clickMenuItem(String itemTitle) throws UiObjectNotFoundException {
         dragLeftMenu();
         scrollToItem(itemTitle);
         device.findObject(byId("design_menu_item_text").text(itemTitle)).click();
-    }
-
-    // работает через раз
-    private void openLeftMenu() {
-        device.findObject(By.desc("Navigate up")).click();
     }
 
     private void dragLeftMenu() {
@@ -65,48 +60,48 @@ public class FastHubApp {
         );
     }
 
-    void clickApply() {
+    public void clickApply() {
         int last = device.findObjects(byId("apply")).size() - 1;
         device.findObjects(byId("apply")).get(last).click();
     }
 
-    void clickSubmit() {
+    public void clickSubmit() {
         int last = device.findObjects(byId("submit")).size() - 1;
         device.findObjects(byId("submit")).get(last).click();
     }
 
-    void clickObjectWithText(String text) {
+    public void clickObjectWithText(String text) {
         device.findObject(By.text(text)).click();
     }
 
-    void scrollForward(int steps) throws UiObjectNotFoundException {
+    public void scrollForward(int steps) throws UiObjectNotFoundException {
         UiScrollable appViews = new UiScrollable(new UiSelector().scrollable(true));
         appViews.setAsHorizontalList();
         appViews.scrollForward(steps);
     }
 
-    void scrollToItem(String elementText) throws UiObjectNotFoundException {
+    public void scrollToItem(String elementText) throws UiObjectNotFoundException {
         UiScrollable appViews = new UiScrollable(new UiSelector().scrollable(true));
         appViews.scrollIntoView(new UiSelector().text(elementText));
     }
 
-    boolean hasObjectWithText(String text) {
+    public boolean hasObjectWithText(String text) {
         return device.wait(Until.hasObject(By.text(text)), TIMEOUT);
     }
 
-    boolean hasObjectWithTitle(String title) {
+    public boolean hasObjectWithTitle(String title) {
         return device.wait(Until.hasObject(title(title)), TIMEOUT);
     }
 
-    void setTextToField(String text, String fieldTitle) {
+    public void setTextToField(String text, String fieldTitle) {
         device.findObject(By.text(fieldTitle)).findObject(By.clazz("android.widget.EditText")).setText(text);
     }
 
-    boolean textFieldContainsText(String fieldName, String text) {
+    public boolean textFieldContainsText(String fieldName, String text) {
         return device.findObject(byId(fieldName.toLowerCase())).getText().contains(text);
     }
 
-    int itemPosition(String listName, String item) {
+    public int itemPosition(String listName, String item) {
         int result = 0;
         List<UiObject2> list =
                 device.findObject(By.text(listName)).getParent().findObjects(byId("mal_item_text"));
@@ -126,7 +121,7 @@ public class FastHubApp {
         return By.res(PACKAGE + ":id/" + id);
     }
 
-    String getAppName() {
+    public String getAppName() {
         return APP_NAME;
     }
 
