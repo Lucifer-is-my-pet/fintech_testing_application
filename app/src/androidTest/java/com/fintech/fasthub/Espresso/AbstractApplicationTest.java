@@ -1,5 +1,6 @@
 package com.fintech.fasthub.Espresso;
 
+
 import android.Manifest;
 import android.content.Context;
 import android.support.annotation.RequiresApi;
@@ -18,7 +19,7 @@ public class AbstractApplicationTest {
 
     @Before
     public void setUp() {
-        grantPermissions();
+//        grantPermissions();
 //        getDevice().pressHome();
 //        getDevice().pressBack();
     }
@@ -27,10 +28,10 @@ public class AbstractApplicationTest {
         return UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
     }
 
-    @RequiresApi(21)
-    private void grantPermissions() {
-        Context context = InstrumentationRegistry.getInstrumentation().getContext();
-        Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+//    @RequiresApi(21)
+//    private void grantPermissions() {
+//        Context context = InstrumentationRegistry.getInstrumentation().getContext();
+//        Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 //        try {
 //            getDevice().executeShellCommand(
 //                    String.format(
@@ -49,6 +50,6 @@ public class AbstractApplicationTest {
 //        } catch (IOException e) {
 //            Log.e("AbstractApplicationTest", "Unable to grant permissions");
 //        }
-    }
+//    }
 
 }
