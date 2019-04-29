@@ -29,7 +29,7 @@ public class TrendingActivityTest extends ConcreteApplicationTest<MainActivity> 
     }
 
     @Test
-    public void recyclerScroll() throws InterruptedException {
+    public void checkTrendingPage() {
         // запустим нужный нам экран
         MainActivity activity = launch();
         // получаем доступ к активности
@@ -37,6 +37,39 @@ public class TrendingActivityTest extends ConcreteApplicationTest<MainActivity> 
         onView(withContentDescription("Navigate up")).perform(click());
         onView(withText("Trending")).perform(click());
 //        onView(withText("Trending")).check(matches());
+    }
+
+    @Test
+    public void checkThemeChange() {
+        MainActivity activity = launch();
+        assertThat("Вход в приложение не был выполнен", activity.isLoggedIn(), is(equalTo(true)));
+        onView(withContentDescription("Navigate up")).perform(click());
+        onView(withText("Settings")).perform(click());
+        onView(withText("Theme")).perform(click());
+    }
+
+    @Test
+    public void checkRestorePurchases() {
+        MainActivity activity = launch();
+        assertThat("Вход в приложение не был выполнен", activity.isLoggedIn(), is(equalTo(true)));
+        onView(withContentDescription("Navigate up")).perform(click());
+        onView(withText("Restore Purchases")).perform(click());
+    }
+
+    @Test
+    public void checkReportAnIssue() {
+        MainActivity activity = launch();
+        assertThat("Вход в приложение не был выполнен", activity.isLoggedIn(), is(equalTo(true)));
+        onView(withContentDescription("Navigate up")).perform(click());
+        onView(withText("Send feedback")).perform(click());
+    }
+
+    @Test
+    public void checkMarkup() {
+        MainActivity activity = launch();
+        assertThat("Вход в приложение не был выполнен", activity.isLoggedIn(), is(equalTo(true)));
+        onView(withContentDescription("Navigate up")).perform(click());
+        onView(withText("About")).perform(click());
     }
 
 }
