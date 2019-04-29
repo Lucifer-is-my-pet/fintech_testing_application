@@ -23,7 +23,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -59,8 +61,9 @@ public class FastHubApp {
 
     public void clickMenuItem(String itemTitle) throws UiObjectNotFoundException {
         dragLeftMenu();
-        scrollToItem(itemTitle);
-        device.findObject(byId("design_menu_item_text").text(itemTitle)).click();
+//        scrollToItem(itemTitle);
+//        device.findObject(byId("design_menu_item_text").text(itemTitle)).click();
+        clickObjectWithText(itemTitle);
     }
 
     private void dragLeftMenu() {
@@ -80,18 +83,14 @@ public class FastHubApp {
     }
 
     public void clickSubmit() {
-        int last = device.findObjects(byId("submit")).size() - 1;
-        device.findObjects(byId("submit")).get(last).click();
+        onView(withId(R.id.submit)).perform(click());
+//        int last = device.findObjects(byId("submit")).size() - 1;
+//        device.findObjects(byId("submit")).get(last).click();
     }
 
     public void clickObjectWithText(String text) {
-        device.findObject(By.text(text)).click();
-    }
-
-    public void scrollForward(int steps) throws UiObjectNotFoundException {
-        UiScrollable appViews = new UiScrollable(new UiSelector().scrollable(true));
-        appViews.setAsHorizontalList();
-        appViews.scrollForward(steps);
+        onView(withText(text)).perform(click());
+//        device.findObject(By.text(text)).click();
     }
 
     public void scrollToItem(String elementText) throws UiObjectNotFoundException {
@@ -103,8 +102,9 @@ public class FastHubApp {
         return device.wait(Until.hasObject(By.text(text)), TIMEOUT);
     }
 
-    public boolean hasObjectWithTitle(String title) {
-        return device.wait(Until.hasObject(title(title)), TIMEOUT);
+    public void hasObjectWithTitle(String title) {
+        onView(withId(R.id.textView)).check(matches(withText(title)));
+//        return device.wait(Until.hasObject(title(title)), TIMEOUT);
     }
 
     public void setTextToField(String text, String fieldTitle) {
