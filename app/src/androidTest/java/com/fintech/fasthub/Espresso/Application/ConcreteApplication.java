@@ -1,17 +1,15 @@
-package com.fintech.fasthub.Espresso;
+package com.fintech.fasthub.Espresso.Application;
 
 
 import android.app.Activity;
 import android.content.Intent;
 import android.support.test.rule.ActivityTestRule;
 
-// создадим обертку для тестов
-public class ConcreteApplicationTest<T extends Activity> extends AbstractApplicationTest {
+public class ConcreteApplication<T extends Activity> extends AbstractApplication {
 
     private final ActivityTestRule<T> rule;
 
-    // создадим и не будем запускать правило
-    public ConcreteApplicationTest(Class<T> clazz) {
+    public ConcreteApplication(Class<T> clazz) {
         rule = new ActivityTestRule<>(clazz, true, false);
     }
 
